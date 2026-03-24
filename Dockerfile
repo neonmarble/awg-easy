@@ -39,6 +39,9 @@ RUN apk add --no-cache iptables-legacy && \
 # Set Environment
 ENV DEBUG=Server,WireGuard
 
+# Override the base image's ENTRYPOINT so the Web UI actually runs
+ENTRYPOINT []
+
 # Run Web UI
 WORKDIR /app
 CMD ["/usr/bin/dumb-init", "node", "server.js"]
